@@ -2,8 +2,8 @@
 
 "use strict";
 
-// check if the command is "completion" 
-// before loading anything to make it faster 
+// check if the command is "completion"
+// before loading anything to make it faster
 if (process.argv.length === 3 && process.argv[2] === "completion") {
   outputCompletionAndExit();
 }
@@ -179,12 +179,15 @@ program.command("assign [reviewers...]")
   .action(cli.assign);
 
 program.command("up")
+  .alias("push")
   .description([
     "Push patches of current topic to server for review.",
     "Push patches of current topic to server for review. Uses the current branch's name as the topic and the upstream as the branch to push against.\nFor example, if you were to normally push `origin HEAD:refs/for/someBranch/myTopic` then your topic branch should be called `myTopic` and its upstream should be `origin/someBranch`."
   ])
   .option("-r, --remote <remote>", "Specify a remote.")
   .option("-b, --branch <branch>", "Specify a branch name if other than upstream.")
+  .option("-t, --topic <topic>", "Specify a topic.")
+  .option("--hashtag [hashtag...]", "Specify hashtags.")
   .option("--draft", "Make this a draft patch. Also see `gerrit help draft`.")
   .option("--comment <comment>", "Post a comment after successful push.")
   .option("--assign [reviewer...]", "Also assign specified reviewers to the patch. All words passed this option ar treated as reviewer names.")
@@ -684,4 +687,3 @@ function outputCompletionAndExit() {
   console.log(output);
   process.exit(code);
 }
-
