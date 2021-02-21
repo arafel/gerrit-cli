@@ -41,15 +41,15 @@ program.on("*", function(args) {
 });
 
 program.option("--loglevel <loglevel>", "Set log level.");
-program.on("loglevel", cli.setLogLevel);
+program.on("option:loglevel", cli.setLogLevel);
 
 program.option("--verbose", "Verbose output.");
-program.on("verbose", function() {
+program.on("option:verbose", function() {
   cli.setLogLevel("verbose");
 });
 
 program.option("--debug", "Debug output.");
-program.on("debug", function() {
+program.on("option:debug", function() {
   cli.setLogLevel("debug");
 });
 
