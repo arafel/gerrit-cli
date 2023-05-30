@@ -32,7 +32,7 @@
     "inquirer-autocomplete-prompt": "^0.3.0",
     "lodash": "^4.17.2",
     "moment": "^2.10.2",
-    "open": "0.0.5",
+    "open": "9.1.0",
     "string_score": "^0.1.22",
     "word-wrap": "^1.0.3"
   },
